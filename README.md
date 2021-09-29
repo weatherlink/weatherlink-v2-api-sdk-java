@@ -1,1 +1,1 @@
-# v2 API SDK - Java
+# WeatherLink v2 API SDK - Java
