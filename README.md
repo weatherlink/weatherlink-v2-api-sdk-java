@@ -1,1 +1,1 @@
-# v2-api-sdk
+# WeatherLink v2 API SDK
