@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.weatherlink</groupId>
+    <artifactId>v2-api-sdk</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>WeatherLink v2 API SDK for Java</name>
+
+    <description>WeatherLink v2 API SDK for Java</description>
+
+    <url>https://weatherlink.github.io/v2-api/java-sdk</url>
+
+    <inceptionYear>2021</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Davis Instruments</name>
+        <url>https://www.davisinstruments.com</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>jeremywall-davis</id>
+            <name>Jeremy Wall</name>
+            <email></email>
+            <url></url>
+            <organization>Davis Instruments</organization>
+            <organizationUrl>https://www.davisinstruments.com</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>America/Los_Angeles</timezone>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/weatherlink/weatherlink-v2-api-sdk-java/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/weatherlink/weatherlink-v2-api-sdk-java.git</connection>
+        <developerConnection>scm:git:git@github.com:weatherlink/weatherlink-v2-api-sdk-java.git</developerConnection>
+        <url>https://github.com/weatherlink/weatherlink-v2-api-sdk-java</url>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <plugins>
+        </plugins>
+    </build>
+</project>
