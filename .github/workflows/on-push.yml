@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 # v2 minimum required
-      - uses: axel-op/googlejavaformat-action@v3
+      - uses: axel-op/googlejavaformat-action@v3 # for details see https://github.com/axel-op/googlejavaformat-action
         with:
-          version: 1.11.0
-          args: "--replace"
+          version: 1.12.0
+          args: "--aosp --replace"
