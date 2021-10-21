@@ -65,6 +65,6 @@ public class SignatureCalculatorTest {
                         "ooxqc6n6cs4n74zyn6djgsz470bxsho1",
                         1633115254,
                         "1234,6789",
-                        "6fc5636eeccc766216d14887530b2a4adb7896d289dd710a59db40eacf76069d"));
+                        "68b3f48d5660926e09b093a6ddb0d98f07dc06215daacbb4e9566339625c6f7d"));
     }
 }
