@@ -6,36 +6,46 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class SignatureCalculatorTest {
 
-    @ParameterizedTest
-    @CsvSource(delimiter = ';', value = {
-            "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp; ooxqc6n6cs4n74zyn6djgsz470bxsho1; 1633115254; 6fc5636eeccc766216d14887530b2a4adb7896d289dd710a59db40eacf76069d"
-    })
-    void calculateStationsSignature(
-            String apiKey,
-            String apiSecret,
-            long apiRequestTimestamp,
-            String expectedApiSignature) throws SignatureException {
+  @ParameterizedTest
+  @CsvSource(
+      delimiter = ';',
+      value = {
+        "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp; ooxqc6n6cs4n74zyn6djgsz470bxsho1; 1633115254;"
+            + " 6fc5636eeccc766216d14887530b2a4adb7896d289dd710a59db40eacf76069d"
+      })
+  void calculateStationsSignature(
+      String apiKey, String apiSecret, long apiRequestTimestamp, String expectedApiSignature)
+      throws SignatureException {
 
-        SignatureCalculator signatureCalculator = new SignatureCalculator();
-        String apiSignature = signatureCalculator.calculateStationsSignature(apiKey, apiSecret, apiRequestTimestamp);
+    SignatureCalculator signatureCalculator = new SignatureCalculator();
+    String apiSignature =
+        signatureCalculator.calculateStationsSignature(apiKey, apiSecret, apiRequestTimestamp);
 
-        Assertions.assertEquals(expectedApiSignature, apiSignature, "API signature does not match expected value");
-    }
+    Assertions.assertEquals(
+        expectedApiSignature, apiSignature, "API signature does not match expected value");
+  }
 
-    @ParameterizedTest
-    @CsvSource(delimiter = ';', value = {
-            "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp; ooxqc6n6cs4n74zyn6djgsz470bxsho1; 1633115254; 1234,6789; 68b3f48d5660926e09b093a6ddb0d98f07dc06215daacbb4e9566339625c6f7d"
-    })
-    void calculateStationsSignatureWithStationIds(
-            String apiKey,
-            String apiSecret,
-            long apiRequestTimestamp,
-            String stationIds,
-            String expectedApiSignature) throws SignatureException {
+  @ParameterizedTest
+  @CsvSource(
+      delimiter = ';',
+      value = {
+        "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp; ooxqc6n6cs4n74zyn6djgsz470bxsho1; 1633115254; 1234,6789;"
+            + " 68b3f48d5660926e09b093a6ddb0d98f07dc06215daacbb4e9566339625c6f7d"
+      })
+  void calculateStationsSignatureWithStationIds(
+      String apiKey,
+      String apiSecret,
+      long apiRequestTimestamp,
+      String stationIds,
+      String expectedApiSignature)
+      throws SignatureException {
 
-        SignatureCalculator signatureCalculator = new SignatureCalculator();
-        String apiSignature = signatureCalculator.calculateStationsSignature(apiKey, apiSecret, apiRequestTimestamp, stationIds);
+    SignatureCalculator signatureCalculator = new SignatureCalculator();
+    String apiSignature =
+        signatureCalculator.calculateStationsSignature(
+            apiKey, apiSecret, apiRequestTimestamp, stationIds);
 
-        Assertions.assertEquals(expectedApiSignature, apiSignature, "API signature does not match expected value");
-    }
+    Assertions.assertEquals(
+        expectedApiSignature, apiSignature, "API signature does not match expected value");
+  }
 }
