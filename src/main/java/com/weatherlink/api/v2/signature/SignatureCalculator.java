@@ -285,7 +285,7 @@ public class SignatureCalculator {
         if (parametersToHash != null) {
             stringToHash =
                     parametersToHash.entrySet().stream()
-                            .sorted(Comparator.comparing(Map.Entry::getKey))
+                            .sorted(Map.Entry.comparingByKey())
                             .map(entry -> entry.getKey() + entry.getValue())
                             .collect(Collectors.joining());
         }
