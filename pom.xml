@@ -94,9 +94,6 @@
                 <configuration>
                     <debug>true</debug>
                     <sourcepath>${basedir}/src/main/java</sourcepath>
-                    <jdkToolchain>
-                        <version>1.8</version>
-                    </jdkToolchain>
                 </configuration>
                 <executions>
                     <execution>
