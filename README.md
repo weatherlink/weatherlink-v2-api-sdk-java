@@ -15,7 +15,7 @@ This project is just getting started and this is the initial release focused on 
 ```xml
 <dependency>
    <groupId>com.weatherlink</groupId>
-   <artifactId>weatherlink-v2-api-sdk-java</artifactId>
+   <artifactId>weatherlink-v2-api-sdk</artifactId>
    <version>VERSION</version>
 </dependency>
 ```
