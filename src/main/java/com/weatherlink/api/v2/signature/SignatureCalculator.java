@@ -5,6 +5,7 @@ import com.weatherlink.api.v2.utils.ParameterNames;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -47,19 +48,19 @@ public class SignatureCalculator {
      * @param apiKey the API Key
      * @param apiSecret the API Secret
      * @param apiRequestTimestamp the Unix timestamp for when the API request is being made
-     * @param stationIds comma delimited list of up to 100 station ID numbers
+     * @param stationIds integer array of up to 100 station ID numbers
      * @return the API Signature
      * @throws SignatureException if there is a problem utilizing the HmacSHA256 algorithm
      */
     public String calculateStationsSignature(
-            String apiKey, String apiSecret, long apiRequestTimestamp, String stationIds)
+            String apiKey, String apiSecret, long apiRequestTimestamp, int[] stationIds)
             throws SignatureException {
 
         HashMap<String, String> parametersToHash = new HashMap<>();
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.STATION_IDS, stationIds);
+        parametersToHash.put(ParameterNames.STATION_IDS, Arrays.stream(stationIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
@@ -90,19 +91,19 @@ public class SignatureCalculator {
      * @param apiKey the API Key
      * @param apiSecret the API Secret
      * @param apiRequestTimestamp the Unix timestamp for when the API request is being made
-     * @param nodeIds comma delimited list of up to 100 node ID numbers
+     * @param nodeIds integer array of up to 100 node ID numbers
      * @return the API Signature
      * @throws SignatureException if there is a problem utilizing the HmacSHA256 algorithm
      */
     public String calculateNodesSignature(
-            String apiKey, String apiSecret, long apiRequestTimestamp, String nodeIds)
+            String apiKey, String apiSecret, long apiRequestTimestamp, int[] nodeIds)
             throws SignatureException {
 
         HashMap<String, String> parametersToHash = new HashMap<>();
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.NODE_IDS, nodeIds);
+        parametersToHash.put(ParameterNames.NODE_IDS, Arrays.stream(nodeIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
@@ -133,19 +134,19 @@ public class SignatureCalculator {
      * @param apiKey the API Key
      * @param apiSecret the API Secret
      * @param apiRequestTimestamp the Unix timestamp for when the API request is being made
-     * @param sensorIds comma delimited list of up to 100 sensor ID numbers
+     * @param sensorIds integer array of up to 100 sensor ID numbers
      * @return the API Signature
      * @throws SignatureException if there is a problem utilizing the HmacSHA256 algorithm
      */
     public String calculateSensorsSignature(
-            String apiKey, String apiSecret, long apiRequestTimestamp, String sensorIds)
+            String apiKey, String apiSecret, long apiRequestTimestamp, int[] sensorIds)
             throws SignatureException {
 
         HashMap<String, String> parametersToHash = new HashMap<>();
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.SENSOR_IDS, sensorIds);
+        parametersToHash.put(ParameterNames.SENSOR_IDS, Arrays.stream(sensorIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
@@ -176,19 +177,19 @@ public class SignatureCalculator {
      * @param apiKey the API Key
      * @param apiSecret the API Secret
      * @param apiRequestTimestamp the Unix timestamp for when the API request is being made
-     * @param sensorIds comma delimited list of up to 100 sensor ID numbers
+     * @param sensorIds integer array of up to 100 sensor ID numbers
      * @return the API Signature
      * @throws SignatureException if there is a problem utilizing the HmacSHA256 algorithm
      */
     public String calculateSensorActivitySignature(
-            String apiKey, String apiSecret, long apiRequestTimestamp, String sensorIds)
+            String apiKey, String apiSecret, long apiRequestTimestamp, int[] sensorIds)
             throws SignatureException {
 
         HashMap<String, String> parametersToHash = new HashMap<>();
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.SENSOR_IDS, sensorIds);
+        parametersToHash.put(ParameterNames.SENSOR_IDS, Arrays.stream(sensorIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
