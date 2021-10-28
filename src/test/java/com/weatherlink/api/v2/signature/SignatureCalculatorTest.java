@@ -64,7 +64,7 @@ public class SignatureCalculatorTest {
                         "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp",
                         "ooxqc6n6cs4n74zyn6djgsz470bxsho1",
                         1633115254,
-                        new int[] { 1234, 6789 },
+                        new int[] {1234, 6789},
                         "68b3f48d5660926e09b093a6ddb0d98f07dc06215daacbb4e9566339625c6f7d"));
     }
 
@@ -78,8 +78,7 @@ public class SignatureCalculatorTest {
 
         SignatureCalculator signatureCalculator = new SignatureCalculator();
         String apiSignature =
-                signatureCalculator.calculateNodesSignature(
-                        apiKey, apiSecret, apiRequestTimestamp);
+                signatureCalculator.calculateNodesSignature(apiKey, apiSecret, apiRequestTimestamp);
 
         Assertions.assertEquals(
                 expectedApiSignature, apiSignature, "API signature does not match expected value");
@@ -123,7 +122,7 @@ public class SignatureCalculatorTest {
                         "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp",
                         "ooxqc6n6cs4n74zyn6djgsz470bxsho1",
                         1633115254,
-                        new int[] { 1234, 6789 },
+                        new int[] {1234, 6789},
                         "62517e3e306a3f39734fbdb141918edc2f32afc32295035f755984c1cf8cdabf"));
     }
 
@@ -182,7 +181,7 @@ public class SignatureCalculatorTest {
                         "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp",
                         "ooxqc6n6cs4n74zyn6djgsz470bxsho1",
                         1633115254,
-                        new int[] { 1234, 6789 },
+                        new int[] {1234, 6789},
                         "4f66b360a2308e6022b9ed2ce603a4c048cf42a18b43461a42ac80e7b666d10d"));
     }
 
@@ -234,14 +233,15 @@ public class SignatureCalculatorTest {
                 expectedApiSignature, apiSignature, "API signature does not match expected value");
     }
 
-    private static Stream<Arguments> calculateSensorActivitySignatureWithSensorIdsArgumentsProvider() {
+    private static Stream<Arguments>
+            calculateSensorActivitySignatureWithSensorIdsArgumentsProvider() {
 
         return Stream.of(
                 Arguments.of(
                         "3l4raa5xl6xcgfkh5r5tdgnvbbb0d0zp",
                         "ooxqc6n6cs4n74zyn6djgsz470bxsho1",
                         1633115254,
-                        new int[] { 1234, 6789 },
+                        new int[] {1234, 6789},
                         "4f66b360a2308e6022b9ed2ce603a4c048cf42a18b43461a42ac80e7b666d10d"));
     }
 
@@ -277,7 +277,11 @@ public class SignatureCalculatorTest {
     @ParameterizedTest
     @MethodSource("calculateCurrentSignatureArgumentsProvider")
     void calculateCurrentSignature(
-            String apiKey, String apiSecret, long apiRequestTimestamp, int stationId, String expectedApiSignature)
+            String apiKey,
+            String apiSecret,
+            long apiRequestTimestamp,
+            int stationId,
+            String expectedApiSignature)
             throws SignatureException {
 
         SignatureCalculator signatureCalculator = new SignatureCalculator();
@@ -305,13 +309,24 @@ public class SignatureCalculatorTest {
     @ParameterizedTest
     @MethodSource("calculateHistoricSignatureArgumentsProvider")
     void calculateHistoricSignature(
-            String apiKey, String apiSecret, long apiRequestTimestamp, int stationId, long startTimestamp, long endTimestamp, String expectedApiSignature)
+            String apiKey,
+            String apiSecret,
+            long apiRequestTimestamp,
+            int stationId,
+            long startTimestamp,
+            long endTimestamp,
+            String expectedApiSignature)
             throws SignatureException {
 
         SignatureCalculator signatureCalculator = new SignatureCalculator();
         String apiSignature =
                 signatureCalculator.calculateHistoricSignature(
-                        apiKey, apiSecret, apiRequestTimestamp, stationId, startTimestamp, endTimestamp);
+                        apiKey,
+                        apiSecret,
+                        apiRequestTimestamp,
+                        stationId,
+                        startTimestamp,
+                        endTimestamp);
 
         Assertions.assertEquals(
                 expectedApiSignature, apiSignature, "API signature does not match expected value");

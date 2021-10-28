@@ -60,7 +60,11 @@ public class SignatureCalculator {
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.STATION_IDS, Arrays.stream(stationIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
+        parametersToHash.put(
+                ParameterNames.STATION_IDS,
+                Arrays.stream(stationIds)
+                        .mapToObj(String::valueOf)
+                        .collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
@@ -103,7 +107,9 @@ public class SignatureCalculator {
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.NODE_IDS, Arrays.stream(nodeIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
+        parametersToHash.put(
+                ParameterNames.NODE_IDS,
+                Arrays.stream(nodeIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
@@ -146,7 +152,11 @@ public class SignatureCalculator {
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.SENSOR_IDS, Arrays.stream(sensorIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
+        parametersToHash.put(
+                ParameterNames.SENSOR_IDS,
+                Arrays.stream(sensorIds)
+                        .mapToObj(String::valueOf)
+                        .collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
@@ -189,7 +199,11 @@ public class SignatureCalculator {
         parametersToHash.put(ParameterNames.API_KEY, apiKey);
         parametersToHash.put(
                 ParameterNames.API_REQUEST_TIMESTAMP, String.valueOf(apiRequestTimestamp));
-        parametersToHash.put(ParameterNames.SENSOR_IDS, Arrays.stream(sensorIds).mapToObj(String::valueOf).collect(Collectors.joining(",")));
+        parametersToHash.put(
+                ParameterNames.SENSOR_IDS,
+                Arrays.stream(sensorIds)
+                        .mapToObj(String::valueOf)
+                        .collect(Collectors.joining(",")));
         return calculateSignature(apiSecret, parametersToHash);
     }
 
