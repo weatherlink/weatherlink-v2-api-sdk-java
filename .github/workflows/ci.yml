@@ -23,7 +23,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
-          distribution: '<distribution>'
+          distribution: 'temurin'
           java-version: ${{ matrix.Java }}
           cache: 'maven'
       - name: Build with Maven
