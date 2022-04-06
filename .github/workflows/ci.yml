@@ -7,19 +7,26 @@ on:
       - main
 
 jobs:
+  format:
+    name: Format code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: axel-op/googlejavaformat-action@v3 # for details see https://github.com/axel-op/googlejavaformat-action
+        with:
+          version: 1.15.0
+          args: "--aosp --skip-reflowing-long-strings --replace"
   build:
+    name: Build with Java ${{ matrix.Java }}
+    needs: format
     runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [ '8', '11', '17' ]
-    name: Java ${{ matrix.Java }} build
     steps:
-      - name: Checkout Java
-        uses: actions/checkout@v2 # v2 minimum required
-#      - uses: axel-op/googlejavaformat-action@v3 # for details see https://github.com/axel-op/googlejavaformat-action
-#        with:
-#          version: 1.12.0
-#          args: "--aosp --skip-reflowing-long-strings --replace"
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
