@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-
+# https://repo1.maven.org/maven2/com/weatherlink/weatherlink-v2-api-sdk/maven-metadata.xml
 jobs:
   format:
     name: Format code
@@ -13,6 +13,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - run: pip3 install yq
+      - run: sed -i 's/<version>.*\?<\/version>/<version>'`curl -s https://repo1.maven.org/maven2/com/weatherlink/weatherlink-v2-api-sdk/maven-metadata.xml | xq '.metadata.versioning.latest' | tr -d '"'`'<\/version>/g' dummy.txt
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update released dependency version in README
+          file_pattern: README.md
+          skip_dirty_check: false
       - uses: axel-op/googlejavaformat-action@v3 # for details see https://github.com/axel-op/googlejavaformat-action
         with:
           version: v1.15.0
