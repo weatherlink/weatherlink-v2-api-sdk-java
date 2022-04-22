@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - run: pip3 install yq
-      - run: sed -i 's/<version>.*\?<\/version>/<version>'`curl -s https://repo1.maven.org/maven2/com/weatherlink/weatherlink-v2-api-sdk/maven-metadata.xml | xq '.metadata.versioning.latest' | tr -d '"'`'<\/version>/g' dummy.txt
+      - run: sed -i 's/<version>.*\?<\/version>/<version>'`curl -s https://repo1.maven.org/maven2/com/weatherlink/weatherlink-v2-api-sdk/maven-metadata.xml | xq '.metadata.versioning.latest' | tr -d '"'`'<\/version>/g' README.md
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update released dependency version in README
